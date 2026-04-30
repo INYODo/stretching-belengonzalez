@@ -19,6 +19,9 @@
         .feature-box:hover { border-color: #a8a29e; transform: translateY(-3px); }
         .stretching-card { background: #fff; border: 1px solid #e7e5e4; transition: all 0.4s ease; }
         .stretching-card:hover { border-color: #a8a29e; transform: translateY(-3px); }
+        /* Mostrar el menú lateral cuando el checkbox está activo */
+        #menu-toggle:checked ~ #side-menu { transform: translateX(0); }
+        #menu-toggle:checked ~ #menu-overlay { display: block; }
     </style>
 </head>
 <body class="antialiased">
@@ -31,20 +34,21 @@
     </label>
     <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-stone-900/10 backdrop-blur-sm z-40 hidden"></label>
 
-    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#fcfaf7] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-stone-100 italic text-stone-900">
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#fcfaf7] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-stone-100 italic text-stone-900 overflow-y-auto">
         <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-400 text-xl"><i class="fas fa-times"></i></label>
         <div class="mt-12">
             <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-8 font-bold border-b border-stone-100 pb-2 italic text-center">Espacio INYO ☯️</p>
-            <ul class="space-y-6 text-sm uppercase tracking-widest font-semibold italic">
-                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-stone-600 transition">Masaje Japonés</a></li>
-                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-stone-600 transition">HIIT Calistenia</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-stone-600 transition">Clases de Yoga</a></li>
-                <li><a href="https://inyodo.github.io/Coaching-/index.html" class="block hover:text-stone-600 transition">Coaching Online</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block font-bold underline underline-offset-8">Zen Stretching</a></li>
-                <li><a href="https://inyodo.github.io/Qigong/" class="block hover:text-stone-600 transition">Qigong</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-stone-600 transition">Artes Marciales</a></li>
-                <li><a href="https://inyodo.github.io/chamanismo/" class="block hover:text-stone-600 transition">Chamanismo</a></li>
-                <li><a href="https://inyodo.github.io/Acupuntura/index.html" class="block hover:text-stone-600 transition">Acupuntura</a></li>
+            <ul class="space-y-5 text-xs uppercase tracking-widest font-semibold italic">
+                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-stone-600 transition py-1">Masaje Japonés</a></li>
+                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-stone-600 transition py-1">HIIT Calistenia</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-stone-600 transition py-1">Clases de Yoga</a></li>
+                <li><a href="https://inyodo.github.io/Coaching-/index.html" class="block hover:text-stone-600 transition py-1">Coaching Online</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-stone-600 transition py-1">Zen Stretching</a></li>
+                <li><a href="https://inyodo.github.io/Qigong/" class="block hover:text-stone-600 transition py-1">Qigong</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-stone-600 transition py-1">Artes Marciales</a></li>
+                <li><a href="https://inyodo.github.io/chamanismo/" class="block hover:text-stone-600 transition py-1">Chamanismo</a></li>
+                <li><a href="https://inyodo.github.io/Acupuntura/index.html" class="block hover:text-stone-600 transition py-1">Acupuntura</a></li>
+                <li><a href="https://inyodo.github.io/stretching-belengonzalez/" class="block font-bold underline underline-offset-8 py-1">INYO Stretching</a></li>
             </ul>
         </div>
     </nav>
@@ -73,7 +77,7 @@
                     Las clases de Stretching están guiadas por <strong>Belén González</strong>, profesora de Hatha Yoga y Meditación. Con un profundo recorrido en el estudio del movimiento y la danza, su enfoque combina la conciencia corporal con técnicas de Mindfulness y Coaching. 
                 </p>
                 <p class="text-sm leading-relaxed text-stone-500">
-                    Belén te acompañará en un proceso de relajación profunda, en el que no solo aliviarás las tensiones y el estrés de la vida diaria, sino que también mejorarás tu movilidad y prepararás a tu cuerpo para el buen descanso.
+                    Durante la mañana, Belén te guiará en un proceso de mejora de la movilidad y conciencia plena, preparando a tu cuerpo para el resto del día y fomentando el buen descanso nocturno.
                 </p>
             </div>
         </div>
@@ -124,9 +128,9 @@
             <div class="stretching-card p-10 flex flex-col justify-between border-t-4 border-yellow-800 bg-stone-50 shadow-md">
                 <div>
                     <h3 class="text-lg font-bold mb-2 tracking-widest">Zen Stretching</h3>
-                    <p class="text-xs text-stone-400 uppercase font-bold tracking-widest mb-6">Todo tipo de edad y patologías</p>
+                    <p class="text-xs text-stone-400 uppercase font-bold tracking-widest mb-6">Terapéutico & Dinámico</p>
                     <p class="text-xs text-stone-600 mb-6 leading-relaxed">
-                        Enfoque terapéutico y flexible para personas adultas con molestias o dolencias físicas.
+                        Enfoque integral tanto para personas adultas con dolencias como para quienes entrenan pesado y necesitan recuperar.
                     </p>
                 </div>
                 <div class="text-left pt-6 border-t border-stone-100">
@@ -145,7 +149,7 @@
                 </div>
                 <div class="text-left pt-6 border-t border-stone-100">
                     <p class="text-[9px] uppercase font-bold text-stone-400 mb-2">Martes y Jueves 14:00 HS</p>
-                    <a href="https://inyodo.github.io/hiit-calistenia/" class="text-[10px] font-bold uppercase tracking-tighter text-stone-900 underline underline-offset-4 hover:text-stone-400 transition">Ver detalle <i class="fas fa-arrow-right ml-1"></i></a>
+                    <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="text-[10px] font-bold uppercase tracking-tighter text-stone-900 underline underline-offset-4 hover:text-stone-400 transition">Ver detalle <i class="fas fa-arrow-right ml-1"></i></a>
                 </div>
             </div>
 

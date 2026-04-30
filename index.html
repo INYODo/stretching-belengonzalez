@@ -52,11 +52,17 @@
             text-transform: uppercase;
         }
 
+        /* Menú hamburguesa y su lista desplegable */
+        .menu-container {
+            position: relative;
+        }
+
         .menu-icon {
             cursor: pointer;
             display: flex;
             flex-direction: column;
             gap: 6px;
+            padding: 10px;
         }
 
         .menu-icon span {
@@ -64,6 +70,40 @@
             height: 2px;
             background-color: var(--text-color);
             transition: all 0.3s ease;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            background-color: var(--white);
+            min-width: 220px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 6px;
+            border: 1px solid var(--light-gray);
+            z-index: 1001;
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .menu-container:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 400;
+            transition: background 0.2s;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: var(--light-gray);
+            color: var(--accent-color);
         }
 
         /* Hero Section */
@@ -75,7 +115,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            background: linear-gradient(rgba(250, 248, 245, 0.8), rgba(250, 248, 245, 0.8)), url('https://images.unsplash.com/photo-1599447301783-2e0f2f0a1c3d?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+            background: linear-gradient(rgba(250, 248, 245, 0.8), rgba(250, 248, 245, 0.8)), url('img/foto-belen.jpg') no-repeat center center;
             background-size: cover;
         }
 
@@ -112,7 +152,7 @@
             background-color: #586956;
         }
 
-        /* About Section */
+        /* Section */
         .section {
             padding: 100px 40px;
             max-width: 1000px;
@@ -129,17 +169,10 @@
         }
 
         .about-content {
-            display: flex;
-            gap: 40px;
-            align-items: center;
             background-color: var(--white);
             padding: 50px;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
-        }
-
-        .about-text {
-            flex: 1;
         }
 
         .about-text h3 {
@@ -169,7 +202,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 320px;
+            min-height: 340px;
         }
 
         .price-card:hover {
@@ -230,19 +263,58 @@
 
         /* Footer */
         footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--light-gray);
-            font-size: 12px;
-            color: #777;
             background-color: var(--bg-color);
+            padding: 60px 40px 30px;
+            border-top: 1px solid var(--light-gray);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            text-align: left;
+            min-width: 200px;
+        }
+
+        .footer-column h5 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column ul li a {
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            font-size: 11px;
+            color: #777;
             letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
             .pricing-container {
                 flex-direction: column;
                 align-items: center;
@@ -251,29 +323,44 @@
                 width: 100%;
                 max-width: 350px;
             }
+            .footer-links {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            .footer-column {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">Belén González</div>
-        <div class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="menu-container">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="dropdown-menu">
+                <li><a href="#proposals">Nuestras Propuestas</a></li>
+                <li><a href="https://stretching-belengonzalez.github.io/">Stretching Consciente (Viernes 10:30hs)</a></li>
+                <li><a href="#">Zen Stretching</a></li>
+                <li><a href="#">Stretching Dinámico</a></li>
+                <li><a href="#">Movilidad y Postura</a></li>
+                <li><a href="#precios">Precios y Planes</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero -->
     <section class="hero">
         <h1>Stretching Belén González</h1>
         <p>Una pausa consciente para aliviar tensiones, mejorar la movilidad y recuperar el diálogo con tu cuerpo. Descomprimí tu día.</p>
         <a href="#precios" class="btn">Reservar Clase</a>
     </section>
 
-    <!-- About Section -->
     <section class="section">
         <h2 class="section-title">Sobre la Profesora</h2>
         <div class="about-content">
@@ -284,8 +371,7 @@
         </div>
     </section>
 
-    <!-- Proposals Section -->
-    <section class="section proposals">
+    <section class="section proposals" id="proposals">
         <h2 class="section-title">Nuestras Propuestas</h2>
         <p style="text-align:center; max-width: 600px; margin: 0 auto 30px; font-size: 14px; color: #555;">Explorá nuestros diferentes estilos para encontrar el que mejor resuene con lo que necesitás hoy.</p>
         
@@ -313,7 +399,6 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
     <section class="section" id="precios">
         <h2 class="section-title">Valores e Inscripción</h2>
         
@@ -336,11 +421,42 @@
                 <a href="https://wa.me/?text=Hola,%20quiero%20anotarme%20al%20abono%20mensual%20de%20Stretching." class="btn" style="background-color: var(--accent-color);">Elegir Abono</a>
             </div>
         </div>
+        
+        <p style="text-align: center; margin-top: 35px; font-size: 12px; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <strong>Aclaración:</strong> Si realizás la clase de prueba y decidís continuar con el abono mensual durante el mismo mes, el valor de la clase de prueba ($20.000) se tomará como parte de pago.
+        </p>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Ecosistema Inyo | Stretching Belén González</p>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h5>Stretching</h5>
+                <ul>
+                    <li><a href="https://stretching-belengonzalez.github.io/">Stretching Consciente</a></li>
+                    <li><a href="#">Zen Stretching</a></li>
+                    <li><a href="#">Stretching Dinámico</a></li>
+                    <li><a href="#">Movilidad y Postura</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Ecosistema Inyo</h5>
+                <ul>
+                    <li><a href="#">Hatha Yoga y Meditación</a></li>
+                    <li><a href="#">Coaching en Mindfulness</a></li>
+                    <li><a href="#">Clases Online</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h5>Contacto</h5>
+                <ul>
+                    <li><a href="https://wa.me/?text=Hola">WhatsApp General</a></li>
+                    <li><a href="#precios">Inscripciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Ecosistema Inyo | Stretching Belén González
+        </div>
     </footer>
 
 </body>

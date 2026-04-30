@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stretching - Belén González</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf8f5;
+            --text-color: #333333;
+            --accent-color: #6e826b;
+            --secondary-color: #d8cbb5;
+            --light-gray: #f4f2ee;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-color);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 18px;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .menu-icon span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(250, 248, 245, 0.8), rgba(250, 248, 245, 0.8)), url('https://images.unsplash.com/photo-1599447301783-2e0f2f0a1c3d?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        .hero p {
+            font-size: 16px;
+            max-width: 600px;
+            margin-bottom: 35px;
+            color: #555555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #586956;
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+
+        /* Pricing Section */
+        .pricing-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .price-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            border: 1px solid var(--light-gray);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 320px;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-card h4 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .price-amount {
+            font-size: 32px;
+            font-weight: 300;
+            margin: 20px 0;
+            color: var(--text-color);
+        }
+
+        .price-card p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Proposals Section */
+        .proposals {
+            background-color: var(--light-gray);
+        }
+
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .prop-card {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .prop-card h4 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--accent-color);
+        }
+
+        .prop-card p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--light-gray);
+            font-size: 12px;
+            color: #777;
+            background-color: var(--bg-color);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .price-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Belén González</div>
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Stretching Belén González</h1>
+        <p>Una pausa consciente para aliviar tensiones, mejorar la movilidad y recuperar el diálogo con tu cuerpo. Descomprimí tu día.</p>
+        <a href="#precios" class="btn">Reservar Clase</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <h2 class="section-title">Sobre la Profesora</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Belén González</h3>
+                <p>Belén es profesora de Hatha Yoga y Meditación, con una sólida formación en danza y estudios de coaching en Mindfulness. Su enfoque integra estas disciplinas para ofrecer una práctica profunda de estiramiento y relajación física y mental. Su objetivo es brindarte un espacio de liviandad, ayudándote a disolver la rigidez acumulada por la vida diaria y preparándote para un descanso verdaderamente reparador.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposals Section -->
+    <section class="section proposals">
+        <h2 class="section-title">Nuestras Propuestas</h2>
+        <p style="text-align:center; max-width: 600px; margin: 0 auto 30px; font-size: 14px; color: #555;">Explorá nuestros diferentes estilos para encontrar el que mejor resuene con lo que necesitás hoy.</p>
+        
+        <div class="proposals-grid">
+            <div class="prop-card">
+                <h4>Stretching Consciente</h4>
+                <p style="font-size: 12px; margin-bottom: 10px; color: var(--accent-color); font-weight: 500;">Viernes 10:30hs</p>
+                <p>Enfoque en relajación física y mental. Estimula el sistema nervioso y libera tensiones acumuladas del día a día, mejorando la flexibilidad y promoviendo el buen descanso.</p>
+            </div>
+            <div class="prop-card">
+                <h4>Zen Stretching</h4>
+                <p style="font-size: 12px; margin-bottom: 10px; color: var(--accent-color); font-weight: 500;">Terapéutico</p>
+                <p>Orientado a todas las edades. Abordaje suave y terapéutico ideal para adultos que buscan mejorar su bienestar físico y aliviar dolencias articulares.</p>
+            </div>
+            <div class="prop-card">
+                <h4>Stretching Dinámico</h4>
+                <p style="font-size: 12px; margin-bottom: 10px; color: var(--accent-color); font-weight: 500;">Recuperación</p>
+                <p>Diseñado para personas que realizan entrenamientos intensos (HIIT, calistenia) y necesitan una recuperación muscular profunda y eficiente.</p>
+            </div>
+            <div class="prop-card">
+                <h4>Movilidad y Postura</h4>
+                <p style="font-size: 12px; margin-bottom: 10px; color: var(--accent-color); font-weight: 500;">Martes y Jueves 14:00hs</p>
+                <p>Una práctica enfocada en corregir la postura, alinear el cuerpo y recuperar la movilidad natural de las articulaciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="precios">
+        <h2 class="section-title">Valores e Inscripción</h2>
+        
+        <div class="pricing-container">
+            <div class="price-card">
+                <div>
+                    <h4>Clase de Prueba</h4>
+                    <div class="price-amount">$20.000</div>
+                    <p>Ideal para conocer la actividad. Si decidís ocupar el cupo mensual, se toma como parte de pago.</p>
+                </div>
+                <a href="https://wa.me/?text=Hola,%20quiero%20reservar%20mi%20clase%20de%20prueba%20de%20Stretching." class="btn" style="background-color: var(--accent-color);">Elegir Prueba</a>
+            </div>
+
+            <div class="price-card">
+                <div>
+                    <h4>Abono Mensual</h4>
+                    <div class="price-amount">$48.000</div>
+                    <p>Clases todos los viernes a las 10:30hs. Reservá tu lugar para el mes completo.</p>
+                </div>
+                <a href="https://wa.me/?text=Hola,%20quiero%20anotarme%20al%20abono%20mensual%20de%20Stretching." class="btn" style="background-color: var(--accent-color);">Elegir Abono</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ecosistema Inyo | Stretching Belén González</p>
+    </footer>
+
+</body>
+</html>

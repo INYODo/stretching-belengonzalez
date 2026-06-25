@@ -195,5 +195,35 @@
         }, observerOptions);
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
+    <!-- ==========================================================================
+         LLAMADOR FLOTANTE: PASO DE INVIERNO ECOSISTEMA INYO ($160.000)
+         ========================================================================== -->
+    <div id="banner-invierno" class="fixed bottom-0 left-0 right-0 bg-[#0c0a09]/95 backdrop-blur-md border-t border-stone-800 text-white p-4 z-[9999] transform translate-y-0 transition-transform duration-500 ease-in-out italic">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            
+            <!-- Texto del Llamador -->
+            <div class="flex items-center gap-3">
+                <div class="text-xl text-stone-400">❄️</div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.2em] font-bold text-stone-300">Pase Global de Invierno • $160.000</h4>
+                    <p class="text-[11px] text-stone-500 font-light">Membresía única mensual con acceso a Yoga, Calistenia, Zen Stretching y Bujinkan con Gastón y Belén.</p>
+                </div>
+            </div>
+            
+            <!-- Acciones -->
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Vi%20el%20Llamador%20en%20la%20web%20y%20me%20interesa%20inscribirme%20con%20la%20*Membres%C3%ADa%20Global%20de%20Invierno*%20de%20$160.000.%20%C2%BFMe%20podr%C3%ADas%20indicar%20los%20pasos%20para%20asegurar%20mi%20cupo%3F%20%C2%A1Muchas%20gracias!" 
+                   target="_blank" 
+                   class="bg-white text-stone-950 px-5 py-2 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-stone-200 transition-all shadow-xl">
+                    Solicitar Pase
+                </a>
+                <!-- Botón de cerrar -->
+                <button onclick="document.getElementById('banner-invierno').style.display='none'" class="text-stone-500 hover:text-white text-xs px-2">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+        </div>
+    </div>
 </body>
 </html>
